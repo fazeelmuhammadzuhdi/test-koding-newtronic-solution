@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->string('gambar')->nullable()->after('user_id');
+        Schema::create('nasabahs', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id');
+            $table->string('nama');
+            $table->string('telepon');
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            $table->dropColumn('gambar');
-        });
+        Schema::dropIfExists('nasabahs');
     }
 };

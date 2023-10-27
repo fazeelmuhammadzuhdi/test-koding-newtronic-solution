@@ -64,23 +64,46 @@
             </a>
         </li>
 
-        <!--  Tasks -->
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Tasks</span>
-        </li>
-        <li class="menu-item {{ Route::is('tasks.create') ? 'active' : '' }}">
-            <a href="{{ route('tasks.create') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Create Tasks</div>
-            </a>
-        </li>
+        @if (auth()->user()->roles == 'nasabah')
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Nasabah</span>
+            </li>
+            <li class="menu-item {{ Route::is('nasabah.index') ? 'active' : '' }}">
+                <a href="{{ route('nasabah.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Antrian Layanan</div>
+                </a>
+            </li>
 
-        <li class="menu-item {{ Route::is('tasks.index') || Route::is('tasks.edit') ? 'active' : '' }}">
-            <a href="{{ route('tasks.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Lists Tasks</div>
-            </a>
-        </li>
+            <li class="menu-item {{ Route::is('nasabah.create') ? 'active' : '' }}"">
+                <a href="{{ route('nasabah.create') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Data Diri</div>
+                </a>
+            </li>
+        @elseif (auth()->user()->roles == 'teller')
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Teller</span>
+            </li>
+            <li class="menu-item {{ Route::is('antrian.nasabah-teller') ? 'active' : '' }}">
+                <a href="{{ route('antrian.nasabah-teller') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Daftar Antrian Nasabah Teller</div>
+                </a>
+            </li>
+        @else
+            <li class="menu-header small text-uppercase">
+                <span class="menu-header-text">Customer Service</span>
+            </li>
+            <li class="menu-item {{ Route::is('antrian.nasabah-cs') ? 'active' : '' }}">
+                <a href="{{ route('antrian.nasabah-cs') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                    <div data-i18n="Analytics">Daftar Antrian Nasabah Cc</div>
+                </a>
+            </li>
+        @endif
+
+
 
 
 

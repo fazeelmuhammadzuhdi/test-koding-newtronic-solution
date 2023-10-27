@@ -43,15 +43,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-    
+
     /**
      * Get all of the tasks for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function tasks(): HasMany
+
+    public function nasabah()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasOne(Nasabah::class);
     }
-    
 }
