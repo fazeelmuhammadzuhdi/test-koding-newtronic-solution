@@ -1,3 +1,9 @@
+## Aplikasi Antrian Bank Sederhana & Hasil Tampilannya  
+<img src="/public/hasil/nasabah.png">
+<img src="/public/hasil/teller.png">
+<img src="/public/hasil/cs.png">
+<img src="/public/hasil/api.png">
+
 ## Installation / Instalasi
 Direkomendasikan menggunakan php > 8.1.0. Pastikan Repository ini telah diclone, kemudian buka CLI dan posisikan direktori aktif ke repo ini.
 
@@ -20,12 +26,12 @@ Jalankan perintah berikut untuk menghubungkan folder public Anda dengan storage
 ```
 php artisan storage:link
 ```
-Jalankan perintah berikut untuk membuat skema database dan menjalankan seeder sekaligus
+Jalankan perintah berikut untuk membuat skema database sekaligus
 ```
-php artisan migrate:fresh --seed
+php artisan migrate:fresh
 ```
 
-(Opsional) Jalankan perintah berikut untuk menambahkan data-data _dummy_
+(Wajib) Jalankan perintah berikut untuk menambahkan data-data user untuk roles teller dan cs _dummy_
 ```
 php artisan db:seed
 ```
